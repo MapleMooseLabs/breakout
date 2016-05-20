@@ -3,8 +3,6 @@ import React from 'react';
 export default class Brick extends React.Component {
 
   render() {
-    return (
-      <div>Brick</div>
-    )
+    return <span className="breakout__brick" />;
   }
 }

@@ -1,3 +1,35 @@
-#breakout {
-  font-family: sans-serif;
+@import "variables";
+@import "mixins";
+
+
+.breakout {
+  position: relative;
+  width: $breakout-width;
+  height: $breakout-height;
+  margin: auto;
+  border: 1px solid $primary-colour;
 }
+
+  .breakout__bricks-container {
+    @include clearfix;
+    font-size: 0;
+  }
+
+  .breakout__brick {
+    @include block;
+  }
+
+  .breakout__ball {
+
+  }
+
+  .breakout__paddle-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .breakout__paddle {
+    @include block;
+    transition: left 0.8s;
+  }

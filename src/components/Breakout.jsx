@@ -33,9 +33,14 @@ export default class Breakout extends React.Component {
   }
 
   keyDownHandler(e) {
+    let paddle = this.refs.paddle;
+    let paddlePos = paddle.state.posX;
+    // console.log(this.refs);
     if (e.keyCode === 37) {
+      paddle.setState({ posX: paddlePos - 10 });
       this.setState({ leftPressed: true });
     } else if (e.keyCode === 39) {
+      paddle.setState({ posX: paddlePos + 10 });
       this.setState({ rightPressed: true });
     }
   }
@@ -51,26 +56,29 @@ export default class Breakout extends React.Component {
   renderBricks() {
     let bricks = [];
 
-    for (let i = 0; i <= this.props.ballCount; i++) {
+    for (let i = 1; i <= this.props.ballCount; i++) {
       bricks.push(<Brick key={ i } />);
     }
 
-    return bricks;
+    return (
+      <div className="breakout__bricks-container" ref="brickArea">
+        { bricks }
+      </div>
+    );
   }
 
   render() {
     return (
-      <div id="breakout" ref="container">
-        <div ref="brickArea">
-          { this.renderBricks() }
-        </div>
-        <Paddle />
-        <Ball />
+      <div className="breakout" ref="container">
+        { this.renderBricks() }
+        <Paddle ref="paddle" />
+      { /*
+        <Ball /> */ }
       </div>
     )
   }
 }
 
 Breakout.defaultProps = {
-  ballCount: 12
+  ballCount: 15
 };

@@ -1,0 +1,27 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin block {
+  width: $breakout-width / 5;
+  height: $brick-height + ($brick-padding * 2);
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  z-index: 1;
+  position: relative;
+
+  &:after {
+    content: '';
+    background-color: $primary-colour;
+    position: absolute;
+    top: $brick-padding;
+    right: $brick-padding;
+    bottom: $brick-padding;
+    left: $brick-padding;
+  }
+}

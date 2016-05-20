@@ -26,6 +26,9 @@ var config = {
       }
     ]
   },
+  sassLoader: {
+    includePaths: [__dirname, "./src/sass"]
+  },
   output: {
     path: __dirname + '/dist',
     filename: 'index.js'
